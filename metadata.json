@@ -1,0 +1,6 @@
+{
+  "name": "GrainEx - Innovation & Technology",
+  "description": "Smart paddy and rice processing solutions, industrial automation, turnkey engineering, and after-sales service.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
