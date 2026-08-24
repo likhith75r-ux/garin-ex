@@ -119,7 +119,10 @@ export const ContactScreen: React.FC = () => {
                   <h4 className="font-heading font-bold text-lg text-white">
                     Need Instant WhatsApp Support?
                   </h4>
-                  <span className="text-xs text-[#a1f4c8] font-mono">Available Mon - Sat: 9 AM - 8 PM</span>
+                  <div className="flex items-center gap-1.5 mt-0.5">
+                    <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse" />
+                    <span className="text-xs text-[#a1f4c8] font-mono font-bold">24X7 Service Assistant Available</span>
+                  </div>
                 </div>
               </div>
               <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">

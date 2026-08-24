@@ -55,30 +55,30 @@ export const Footer: React.FC<FooterProps> = ({ onSelectScreen, onRequestQuote }
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
           {/* Col 1: Brand Info */}
           <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="bg-white/10 p-2 rounded-lg border border-white/20">
-                <img
-                  src={BRAND_INFO.logoLight}
-                  alt="GrainEx Logo"
-                  className="h-9 w-auto object-contain brightness-110"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-              <div>
-                <span className="font-heading font-black text-2xl text-white tracking-wider block">
-                  Grain<span className="text-[#a1f4c8]">Ex</span>
-                </span>
-                <span className="text-[10px] tracking-[0.2em] text-[#a1f4c8] font-bold uppercase block -mt-1">
-                  {BRAND_INFO.tagline}
-                </span>
+            <div className="bg-white rounded-xl px-4 py-3 shadow-lg border border-gray-200 inline-flex flex-col items-center">
+              <img
+                src={BRAND_INFO.logoLight}
+                alt="GrainEx Logo"
+                className="h-14 sm:h-16 w-auto object-contain"
+                referrerPolicy="no-referrer"
+              />
+              <div className="mt-1.5 text-center font-heading font-black tracking-wider uppercase text-[#1b4332] text-[8.5px] sm:text-[9.5px] leading-tight select-none">
+                <div className="tracking-widest">CONSULTANCY • ENGINEERING • INSTALLATION</div>
+                <div className="tracking-widest mt-0.5">AUTOMATION • PROCESS</div>
               </div>
             </div>
             <p className="text-gray-300 text-sm leading-relaxed">
               Pioneering modern industrial grain engineering. Delivering precision dryers, hydrothermal parboiling lines, automated storage, and intelligent SCADA plant control systems.
             </p>
-            <div className="flex items-center gap-2 text-xs text-[#a1f4c8] font-semibold">
-              <ShieldCheck className="w-4 h-4" />
-              <span>Smart Solutions for a Better Tomorrow</span>
+            <div className="flex flex-col gap-1.5 text-xs text-[#a1f4c8] font-semibold">
+              <div className="flex items-center gap-2">
+                <ShieldCheck className="w-4 h-4" />
+                <span>Smart Solutions for a Better Tomorrow</span>
+              </div>
+              <div className="flex items-center gap-2 text-white">
+                <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse" />
+                <span className="font-mono font-bold text-[#a1f4c8]">24X7 Service Assistant</span>
+              </div>
             </div>
           </div>
 

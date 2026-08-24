@@ -8,7 +8,7 @@ export const FloatingWhatsApp: React.FC = () => {
       {/* Tooltip badge */}
       <div className="hidden sm:flex items-center gap-2 bg-[#1b4332] text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg border border-[#2d6a4f] animate-bounce">
         <span className="w-2 h-2 rounded-full bg-[#25D366] animate-ping" />
-        <span>Chat with Engineer</span>
+        <span className="font-mono font-bold text-[#a1f4c8]">24X7 Service Assistant</span>
       </div>
 
       <a

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Phone, Menu, X, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import { ScreenId } from '../types';
-import { BRAND_INFO, NAV_ITEMS } from '../data/grainExData';
+import { BRAND_INFO } from '../data/grainExData';
 
 interface NavbarProps {
   activeScreen: ScreenId;
@@ -38,25 +38,30 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <header id="main-header" className="sticky top-0 z-50 shadow-2xl">
-      {/* 1. TOP BRAND ROW: Big White Logo Card, Tagline, Phone & Request a Quote */}
-      <div className="bg-[#0b2318] text-white border-b border-[#1b4332] py-2.5 sm:py-3 px-4 sm:px-6 lg:px-8">
+      {/* 1. TOP BRAND ROW: Big White Logo Card with Sub-words, Tagline, 24X7 Assistant & Quote */}
+      <div className="bg-[#0b2318] text-white border-b border-[#1b4332] py-2 sm:py-2.5 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
           
-          {/* Left: Big White Logo Card + Bold Motto & Tagline */}
+          {/* Left: Big White Logo Card + Words Below Logo + Bold Motto & Tagline */}
           <div className="flex items-center gap-3 sm:gap-5">
-            {/* Big Square White Logo Card */}
+            {/* Big Square White Logo Card with Under-Logo Text */}
             <button
               id="header-logo-card"
               onClick={() => handleNavClick('01-introduction')}
-              className="bg-white rounded-xl p-1.5 sm:p-2 shadow-lg flex items-center justify-center w-20 h-16 sm:w-28 sm:h-20 shrink-0 border border-gray-100 hover:opacity-95 transition-opacity"
+              className="bg-white rounded-xl sm:rounded-2xl p-2 sm:p-3 lg:p-3.5 shadow-2xl flex flex-col items-center justify-center shrink-0 border border-gray-100 hover:opacity-95 transition-opacity group min-w-[130px] sm:min-w-[170px] lg:min-w-[210px]"
               title="GrainEx - Home"
             >
               <img
                 src={BRAND_INFO.logoLight}
                 alt="GrainEx Logo"
-                className="max-h-full max-w-full object-contain"
+                className="h-14 sm:h-20 lg:h-24 w-auto object-contain scale-105"
                 referrerPolicy="no-referrer"
               />
+              {/* Words below logo */}
+              <div className="mt-1 sm:mt-2 text-center font-heading font-black tracking-wider uppercase text-[#1b4332] text-[7.5px] sm:text-[10px] lg:text-[11.5px] leading-tight select-none">
+                <div className="tracking-widest whitespace-nowrap">CONSULTANCY • ENGINEERING • INSTALLATION</div>
+                <div className="tracking-widest mt-0.5 whitespace-nowrap">AUTOMATION • PROCESS</div>
+              </div>
             </button>
 
             {/* Tagline & Headline */}
@@ -67,20 +72,32 @@ export const Navbar: React.FC<NavbarProps> = ({
               <p className="text-[#a1f4c8] italic text-xs sm:text-sm font-medium tracking-normal mt-0.5">
                 Smart Solutions for a Better Tomorrow
               </p>
+              <div className="flex items-center gap-2 mt-1">
+                <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-[#116c4a] text-[#a1f4c8] text-[10px] sm:text-xs font-mono font-bold border border-[#a1f4c8]/30">
+                  <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse" />
+                  24X7 Service Assistant
+                </span>
+              </div>
             </div>
           </div>
 
-          {/* Right: Phone & Request A Quote Pill Button */}
+          {/* Right: Phone, 24X7 & Request A Quote Pill Button */}
           <div className="flex items-center gap-3 sm:gap-4 shrink-0">
-            {/* Phone Number */}
-            <a
-              id="header-phone-contact"
-              href={`tel:${BRAND_INFO.phoneFormatted}`}
-              className="hidden md:flex items-center gap-1.5 text-xs sm:text-sm font-mono font-bold text-white hover:text-[#a1f4c8] transition-colors"
-            >
-              <Phone className="w-3.5 h-3.5 text-[#a1f4c8]" />
-              <span>{BRAND_INFO.phone}</span>
-            </a>
+            {/* Phone Number & 24x7 indicator */}
+            <div className="hidden md:flex flex-col items-end text-right">
+              <span className="text-[10px] font-mono font-bold text-[#a1f4c8] uppercase flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse" />
+                24X7 SERVICE ASSISTANT
+              </span>
+              <a
+                id="header-phone-contact"
+                href={`tel:${BRAND_INFO.phoneFormatted}`}
+                className="flex items-center gap-1.5 text-xs sm:text-sm font-mono font-bold text-white hover:text-[#a1f4c8] transition-colors"
+              >
+                <Phone className="w-3.5 h-3.5 text-[#a1f4c8]" />
+                <span>{BRAND_INFO.phone}</span>
+              </a>
+            </div>
 
             {/* Request A Quote White Pill Button */}
             <button
@@ -246,6 +263,10 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
 
           <div className="pt-3 border-t border-white/10 flex flex-col gap-2">
+            <div className="px-3 py-1.5 bg-[#116c4a] rounded-lg text-xs font-mono font-bold text-[#a1f4c8] flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse" />
+              <span>24X7 Service Assistant Available</span>
+            </div>
             <a
               href={`tel:${BRAND_INFO.phoneFormatted}`}
               className="flex items-center justify-center gap-2 py-2 bg-white/10 rounded-lg text-xs font-mono font-bold"
