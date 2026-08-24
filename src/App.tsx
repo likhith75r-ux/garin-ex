@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Navbar } from './components/Navbar';
-import { ScreenBar } from './components/ScreenBar';
-import { ScreenPagination } from './components/ScreenPagination';
 import { Footer } from './components/Footer';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { IntroductionScreen } from './components/screens/IntroductionScreen';
@@ -15,7 +13,6 @@ import { ProductDetailModal } from './components/modals/ProductDetailModal';
 import { QuoteModal } from './components/modals/QuoteModal';
 import { ServiceTicketModal } from './components/modals/ServiceTicketModal';
 import { ProductModule, ScreenId } from './types';
-import { NAV_ITEMS } from './data/grainExData';
 
 const VALID_SCREENS: ScreenId[] = [
   '01-introduction',
@@ -63,7 +60,6 @@ export default function App() {
   // Keyboard navigation (Left / Right arrow keys & 1-6 number keys)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      // Ignore if user is currently typing in an input, textarea, or select
       const activeTag = document.activeElement?.tagName?.toLowerCase();
       if (activeTag === 'input' || activeTag === 'textarea' || activeTag === 'select') {
         return;
@@ -94,29 +90,23 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#f9faf6] text-[#1a1c1a] font-sans antialiased flex flex-col selection:bg-[#116c4a] selection:text-white">
-      {/* Top Fixed Brand Navigation */}
+      {/* Top Fixed Brand Navigation with Embedded Screen Switcher & Stepper */}
       <Navbar
         activeScreen={activeScreen}
         onSelectScreen={handleNavigate}
         onRequestQuote={() => handleOpenQuote('General Grain Processing Plant Proposal')}
       />
 
-      {/* Screen Header Bar with 6-Screen Stepper & Direct Jump Tabs */}
-      <ScreenBar
-        activeScreen={activeScreen}
-        onSelectScreen={handleNavigate}
-      />
-
       {/* Main Single Screen Display with Animated Transitions */}
-      <main className="flex-1 min-h-[600px] flex flex-col">
+      <main className="flex-1 flex flex-col">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeScreen}
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.22, ease: 'easeOut' }}
-            className="flex-1 flex flex-col justify-between"
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2, ease: 'easeOut' }}
+            className="flex-1 flex flex-col"
           >
             {/* Screen 01: Introduction & Heritage */}
             {activeScreen === '01-introduction' && (
@@ -164,13 +154,6 @@ export default function App() {
             {activeScreen === '06-contact-us' && (
               <ContactScreen />
             )}
-
-            {/* Dedicated Bottom Screen Pagination & Next/Prev Controls */}
-            <ScreenPagination
-              activeScreen={activeScreen}
-              onSelectScreen={handleNavigate}
-              onRequestQuote={() => handleOpenQuote('Turnkey Grain Processing Inquiry')}
-            />
           </motion.div>
         </AnimatePresence>
       </main>
